@@ -66,6 +66,7 @@ app.prepare().then(() => {
     });
     server.post('/send-data-cloud', (req, res) => {
         let dbname = req.params.db;
+        
         let firebase = loadDB();
         const db = firebase.firestore();
         let product = {
