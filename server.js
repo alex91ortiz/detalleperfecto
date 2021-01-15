@@ -3,7 +3,7 @@ const next = require('next');
 require('dotenv').config();
 const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_TOKEN);
 const cookieParser = require('cookie-parser');
-const port = parseInt(process.env.PORT, 10) || 8080
+const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
