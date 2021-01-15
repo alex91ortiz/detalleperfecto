@@ -14,7 +14,8 @@ module.exports = withImages(withCss(withSass(withFonts({
     FIREBASE_STORAGE_BUCKET: 'revol-bb930.appspot.com',
     FIREBASE_SENDER_ID: '60754649641',
     FIREBASE_APP_ID: '1:60754649641:web:7a7e2ecfb352a571687238',
-    PORT: 8080
+    PORT: 8080,
+    NODE_ENV:'prod'
   },
   webpack(config, options) {
 
