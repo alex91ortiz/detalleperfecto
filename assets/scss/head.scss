@@ -1,0 +1,187 @@
+.Bar_be {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: fixed;
+    z-index: 3;
+    overflow: visible;
+    background-color: $white;
+    width: 100%;
+    padding-top: 5PX;
+}
+
+.Bar_be_category {
+    width: 100%;
+    margin: 5px;
+    border-radius: 20px;
+}
+.Bar_be_img {
+    width: 25px;
+    height: 22px;
+}
+
+.Bar_be_text {
+    font-family: Dosis;
+    font-style: normal;
+    font-size: 15px;
+    color: #707070;
+    text-align: center;
+}
+
+.Logo_Dp_Class {
+    position: relative;
+    width: 59px;
+    height: 59px;
+    left: 112px;
+    overflow: visible;
+}
+.has-search{
+    width: 100%;
+}
+.has-search .form-control-dp {
+    position: relative;
+    width: 100%;
+    margin-top: 0%;
+    height: 38px;
+    border-radius: 20px;
+    font-family: Dosis;
+    font-style: normal;
+    font-size: 15px;
+    color: #707070;
+    border: 0px solid;
+    text-align: center;
+    background-color: $primary_default;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    top: 18px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.Button_Personalizado {
+    width: 100%;
+    height: 36px;
+    margin: 5px 2px 8px 20px;
+    padding-left: 15px !important;
+    padding-right: 10px !important;
+    border-radius: 10px;
+    border: 0px solid;
+    
+    &__texto_fade{
+        display: none;
+    }
+}
+.icon-button-personalizado {
+    
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}
+
+.Logo_Brand{
+    width: 40px;
+    height: 40px;
+    margin-top: 2px;
+    margin-left: 5px;
+}
+@media screen and (min-width: $grid__bp-md * 1px) {
+    .Logo_Brand{
+        width: 45px;
+        height: 45px;
+        
+    }
+    .Button_Personalizado {
+        overflow: visible;
+        @include md {
+            width: 70%;    
+        }
+        @include sm {
+            width: 40%;    
+        }
+        @include lg {
+            width: 70%;    
+        }
+        
+        border-radius: 10px;
+        border: 0px solid;
+        align-items: center;
+        justify-content: center;
+        &__texto_fade {
+            display: inline;
+        }
+    }
+    .has-search{
+        width: 50%;
+        
+    }
+    .has-search .form-control-dp {
+        position: relative;
+        width: 100%;
+        height: 45px;
+        border-radius: 20px;
+        font-family: Dosis;
+        font-style: normal;
+        font-size: 20px;
+        color: #707070;
+        border: 0px solid;
+        text-align: center;
+        background-color: $primary_default;
+    }
+}
+
+.notebooks {
+    background: whitesmoke;
+    position: absolute;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: 35px;
+    width: 350px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 0 white;
+    max-height: 200px;
+
+    ul {
+        margin: 0 auto;
+        padding: 0;
+        max-height: 80px;
+        overflow-y: auto;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 5px 5px 0 5px;
+        border-left: none;
+        border-right: none;
+
+        li {
+            list-style: none;
+            background-color: rgba(0, 0, 0, 0.05);
+            background-image:
+                linear-gradient(90deg,
+                $second_default 10px,
+                #EEE 10px,
+                #EEE 11px,
+                transparent 11px);
+            padding: 10px 15px 10px 25px;
+            border: 1px solid #CCC;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+            margin-bottom: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            border-radius: 3px;
+            max-height: 50px;
+
+            text-align: justify;
+            font-family: Dosis;
+            font-size: 20px;
+            color: #707070;
+            text-decoration: none;
+        }
+    }   
+}

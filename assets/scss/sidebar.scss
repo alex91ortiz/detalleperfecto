@@ -1,0 +1,165 @@
+// burger button
+$burger-h: 22px;
+$burger-w: 26px;
+// burger button stripes
+$menu-stripe-w: 26px;
+$menu-stripe-h: 3px;
+$menu-stripe-color: #3498db;
+$menu-stripe-color-h: white;
+// header
+$header-h: 60px;
+$header-background: #2c3e50;
+// side menu
+$side-menu-w: 300px;
+
+// ~~~ mixins ~~~
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+
+.side-menu-container {
+  // force hardware acceleration in Chrome
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  position: fixed;
+  top: $header-h;
+  left: 0;
+  visibility: hidden;
+  overflow-x: hidden;
+  @include transition(transform 0.4s 0s, visibility 0s 0.4s);
+  @include transform(translateX(-80px));
+  @include md {
+    &.slide-in {
+      visibility: visible;
+      padding: 10px;
+      width: 20%;
+      @include transform(translateX(0));
+      @include transition(transform 0.4s 0s, visibility 0s 0s);
+    }
+  }
+  @include sm {
+    &.slide-in {
+      visibility: visible;
+      padding: 5px;
+      width: 15%;
+      @include transform(translateX(0));
+      @include transition(transform 0.4s 0s, visibility 0s 0s);
+    }
+  }
+}
+
+.page-content {
+  // force hardware acceleration in Chrome
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  
+  position: fixed;
+  overflow-x: hidden;
+  width: calc(100% - 11%);
+  transition-property: transform;
+  transition-duration: 0.4s;
+  position: relative;
+  margin-left: 5px !important;
+  @include sm {
+    &.slide-content {
+      width: 80%;
+      @include transform(translateX(20%));
+    }
+  }
+  @include md {
+    &.slide-content {
+      @include transform(translateX(12%));
+    }
+  }
+}
+
+#Menu {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  font-size: 13px;
+  color: #717171;
+  width: 100%;
+}
+
+#Menu li {
+  @include md {
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    height: 60px;
+    padding: 20px 10px 10px 10px;
+  }
+  @include lg {
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    height: 55px;
+    padding: 15px 10px 10px 10px;
+  }
+  @include sm {
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    height: 50px;
+    padding: 10px 0px 0px 10px;
+  }
+}
+
+#Menu a {
+  @include md {
+    padding: 10px;
+  }
+  @include lg {
+    padding: 10px;
+  }
+  height: 70px;
+  width: 100%;
+  white-space: nowrap;
+  text-align: right;
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 17px;
+  color: rgba(112, 112, 112, 1);
+}
+.icon-sides {
+  @include md {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  @include lg {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+.text-sides {
+  @include sm {
+    display: none;
+  }
+}
+#Menu li:hover {
+  background-color: $primary_default;
+}
+
+#Menu li:hover a {
+  color: White;
+}
+
+#Menu a:link {
+  color: #717171;
+  text-decoration: none;
+}
+
+#Menu a:hover {
+  color: White;
+}

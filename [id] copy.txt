@@ -1,0 +1,122 @@
+import Head from 'next/head'
+import LayoutNoSides from './components/Layouts/LayoutNotSides';
+import Detail from './components/Detail';
+import { useRouter } from 'next/router'
+import { parseCookies } from './util/auth/parseCookies';
+import loadDB from './firebase.config';
+function ProductDetail({ product, materials, categories, isLoguin }) {
+
+
+  const router = useRouter()
+  return (
+    <LayoutNoSides >
+      <Head>
+        <title>Desayunos - Detalle perfecto</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      {materials &&
+        <Detail id={product.id} materials={materials} product={product} categories={categories} isLoguin={isLoguin} />
+      }
+      <footer>
+
+      </footer>
+    </LayoutNoSides>
+  )
+}
+// This function gets called at build time
+export async function getStaticPaths() {
+  return {
+    // Only `/posts/1` and `/posts/2` are generated at build time
+    paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
+    // Enable statically generating additional pages
+    // For example: `/posts/3`
+    fallback: true
+  }
+}
+export async function getStaticProps(context) {
+  const cookies = parseCookies(context.req);
+  let isLoguin = false;
+  const auth = cookies.auth ? JSON.parse(cookies.auth) : null
+  if (auth) {
+    isLoguin = true;
+  }
+  
+  const firebase = loadDB();
+  const db = await firebase.firestore();
+  let id = context.params.id.split('-');
+  
+  const idproduc = id.length > 0 ?  id[0] : id
+
+
+  let product = await new Promise((resolve, reject) => {
+    db.collection('dp_products').doc(idproduc)
+      .get()
+      .then(snapshot => {
+        let data = {};
+
+        if (snapshot.exists) {
+          data = snapshot.data();
+          data.fecha = JSON.stringify(data.fecha);
+        }
+        resolve(data);
+      })
+      .catch(error => {
+        console.log(error)
+        reject([]);
+      });
+  });
+  let materials = await new Promise((resolve, reject) => {
+    db.collection('dp_materials')
+      .orderBy("subcategoria", "asc")
+      .get()
+      .then(snapshot => {
+        let data = [];
+        snapshot.forEach(doc => {
+          let dataSerialize = doc.data();
+
+
+          data.push(
+            Object.assign(
+              {
+                id: doc.id
+              },
+              dataSerialize
+            )
+          );
+
+        });
+        resolve(data);
+      })
+      .catch(error => {
+        console.log(error)
+        reject([]);
+      });
+  });
+
+  let categories = await new Promise((resolve, reject) => {
+    db.collection('dp_parameters').doc('categories_desayunos')
+      .get()
+      .then(snapshot => {
+
+        let data = {};
+        if (snapshot.exists) {
+          data = snapshot.data();
+        };
+        resolve(data);
+      })
+      .catch(error => {
+        console.log(error)
+        reject([]);
+      });
+  });
+  return {
+    props: {
+      product,
+      materials,
+      categories,
+      isLoguin
+    },
+  }
+}
+export default ProductDetail;

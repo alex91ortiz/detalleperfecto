@@ -1,0 +1,142 @@
+.pill_container {
+    @include sm {
+        max-width: 350px;
+    }
+    @include md {
+        max-width: 784px;
+    }
+    @include lg {
+        max-width: 984px;
+    }
+}
+.pill_container_add {
+    @include sm {
+        max-width: 350px;
+    }
+    @include md {
+        max-width: 484px;
+    }
+    @include lg {
+        max-width: 484px;
+    }
+}
+.pill {
+    border-radius: 20px;
+    font-family: Dosis;
+    font-style: normal;
+    font-weight: lighter;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    padding-top: 5px;
+    margin: 0px !important;
+    position: relative;
+    z-index: 3;
+    
+    &-active {
+        display: inline-block;
+        background: #dfcce2;
+        border-radius: 30px;
+        cursor: pointer;
+        list-style: none;
+        color: #fff;
+        border: 1px solid #c7c6c6;
+        padding: 10px;
+        width: 100px;
+        
+    }
+    &-desactive {
+        display: inline-block;
+        background: #ffffff;
+        border-radius: 30px;
+        cursor: pointer;
+        list-style: none;
+        border: 1px solid #c7c6c6;
+        color: #c7c6c6;
+        padding: 10px;
+        width: 100px;
+    }
+
+    &-slideLeft{
+        position: absolute;
+        top: 90px;
+        @include sm{
+            visibility: hidden;
+        }
+        left: 5px;
+        z-index: 4;
+        border-radius: 50px;
+        background-color: #9b59b6;
+        width: 40px;
+        height: 40px;
+        text-decoration: none;
+        color: #fff;
+        opacity: 0.8;
+        cursor: pointer;
+        border: 0px solid;
+    }
+
+    &-slideRight{
+        position: absolute;
+        top: 90px;
+        @include md{
+            left: 440px;
+        }
+        @include lg{
+            left: 440px;
+        }
+        @include sm{
+            left: 320px;
+            visibility: hidden;
+        }
+        z-index: 4;
+        border-radius: 50px;
+        background-color: #9b59b6;
+        width: 40px;
+        opacity: 0.8;
+        height: 40px;
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        border: 0px solid;
+    }
+    &-slideRight_expand{
+        position: absolute;
+        top: 90px;
+        @include md{
+            left: 910px;
+        }
+        @include lg{
+            left: 910px;
+        }
+        @include sm{
+            left: 320px;
+            visibility: hidden;
+        }
+        z-index: 4;
+        border-radius: 50px;
+        background-color: #9b59b6;
+        width: 40px;
+        opacity: 0.8;
+        height: 40px;
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        border: 0px solid;
+    }
+
+}
+
+.no-scrollbar {
+    scrollbar-width: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}

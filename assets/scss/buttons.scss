@@ -1,0 +1,159 @@
+.btn {
+    border-radius: 5px;
+    font-size: 22px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    border: 0px solid;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+}
+
+* {
+    box-sizing: border-box;
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 1px;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    &.learn-more {
+        font-weight: 600;
+        color: $text;
+        text-transform: uppercase;
+        padding: 1.25em 2em;
+        background: $light-pink;
+        border: 2px solid $pink-border;
+        border-radius: 0.75em;
+        transform-style: preserve-3d;
+        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+        &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $dark-pink;
+            border-radius: inherit;
+            box-shadow: 0 0 0 2px $pink-border, 0 0.625em 0 0 $pink-shadow;
+            transform: translate3d(0, 0.75em, -1em);
+            transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+        }
+        &:hover {
+            background: $pink;
+            transform: translate(0, 0.25em);
+            &::before {
+                box-shadow: 0 0 0 2px $pink-border, 0 0.5em 0 0 $pink-shadow;
+                transform: translate3d(0, 0.5em, -1em);
+            }
+        }
+        &:active {
+            background: $pink;
+            transform: translate(0em, 0.75em);
+            &::before {
+                box-shadow: 0 0 0 2px $pink-border, 0 0 $pink-shadow;
+                transform: translate3d(0, 0, -1em);
+            }
+        }
+    }
+}
+
+.btn:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+.blue {
+    background-color: #55acee;
+    box-shadow: 0px 5px 0px 0px #3c93d5;
+}
+
+.blue:hover {
+    background-color: #6fc6ff;
+}
+
+.green {
+    background-color: #2ecc71;
+    box-shadow: 0px 5px 0px 0px #15b358;
+}
+
+.green:hover {
+    background-color: #48e68b;
+}
+
+.red {
+    background-color: #e74c3c;
+    box-shadow: 0px 5px 0px 0px #ce3323;
+}
+
+.red:hover {
+    background-color: #ff6656;
+}
+
+.purple {
+    background-color: #9b59b6;
+    box-shadow: 0px 5px 0px 0px #82409d;
+}
+
+.purple:hover {
+    background-color: #b573d0;
+}
+
+.orange {
+    background-color: #e67e22;
+    box-shadow: 0px 5px 0px 0px #cd6509;
+}
+
+.orange:hover {
+    background-color: #ff983c;
+}
+
+.yellow {
+    background-color: #f1c40f;
+    box-shadow: 0px 5px 0px 0px #d8ab00;
+}
+
+.yellow:hover {
+    background-color: #ffde29;
+}
+
+.white {
+    background-color: white;
+    box-shadow: 0px 5px 0px 0px #f1f1f1;
+}
+
+.white:hover {
+    background-color: white;
+}
+
+/* copyright stuffs.. */
+p {
+    text-align: center;
+    color: #55acee;
+    padding-top: 20px;
+}
+
+.custom {
+    background-color: #7AD3C7;
+    box-shadow: 0px 5px 0px 0px rgb(30, 172, 153);
+}
+
+.custom:hover {
+    background-color: #24d6bf;
+}

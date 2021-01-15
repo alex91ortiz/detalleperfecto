@@ -1,0 +1,81 @@
+import Head from 'next/head'
+import Layout from './components/Layouts/SubLayout';
+import Options from './components/Options';
+import loadDB from './firebase.config';
+function KitRomantico({ products }) {
+
+  return (
+    <Layout >
+      <Head>
+        <title>kit romantico</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className='container page-content slide-content padding_top_5'>
+        <div className="container__row">
+
+
+        </div>
+      </div>
+      <footer>
+
+      </footer>
+    </Layout>
+  )
+}
+// This function gets called at build time
+export async function getStaticPaths() {
+  return {
+    // Only `/posts/1` and `/posts/2` are generated at build time
+    paths: [{ params: { categoria: 'kit-romantico' } },
+    { params: { categoria: 'kit-cena' } },
+    { params: { categoria: 'kit-picni' } },
+    { params: { categoria: 'kit-cumpleanos' } },
+    { params: { categoria: 'kit-mascotas' } },
+    { params: { categoria: 'desayunos' } }
+    ],
+    // Enable statically generating additional pages
+    // For example: `/posts/3`
+    fallback: true
+  }
+}
+
+
+export async function getStaticProps() {
+
+  const firebase = loadDB();
+  const db = await firebase.firestore();
+  let result = await new Promise((resolve, reject) => {
+    db.collection('dp_products')
+      .get()
+      .then(snapshot => {
+        let data = [];
+        snapshot.forEach(doc => {
+          let dataSerialize = doc.data();
+          dataSerialize.fecha = JSON.stringify(dataSerialize.fecha);
+
+          data.push(
+            Object.assign(
+              {
+                id: doc.id
+              },
+              dataSerialize
+            )
+          );
+
+        });
+        resolve(data);
+      })
+      .catch(error => {
+        console.log(error)
+        reject([]);
+      });
+  });
+
+  return {
+    props: {
+      products: result
+    },
+  }
+}
+export default KitRomantico

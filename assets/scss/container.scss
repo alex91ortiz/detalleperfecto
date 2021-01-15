@@ -1,0 +1,602 @@
+:root {
+  --gutter: 20px;
+}
+a {
+  text-decoration: none;
+}
+.brand {
+  height: 450px !important;
+  margin: 0 auto !important;
+  padding: 0px !important;
+  text-align: center;
+  &:before {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+  }
+  img {
+    width: 90%;
+    height: 200px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.mean_element {
+  position: absolute;
+  top: 10%;
+}
+.detail_content {
+  position: relative;
+  width: 100%;
+}
+
+.division {
+  overflow: visible;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  @include md {
+    top: 120px;
+    height: 160px;
+  }
+  @include lg {
+    top: 120px;
+    height: 155px;
+  }
+  @include xl {
+    top: 140px;
+    height: 155px;
+  }
+  @include sm {
+    top: 90px;
+    height: 150px;
+  }
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+.header {
+  position: absolute;
+  overflow: visible;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(223, 204, 226, 1);
+  left: 0px;
+  top: 0px;
+}
+#Group_14 {
+  position: absolute;
+
+  @include sm {
+    left: 2%;
+    width: 95%;
+    top: 30px;
+  }
+  @include lg {
+    left: 27%;
+    width: 50%;
+    top: 50px;
+  }
+  @include md {
+    left: 27%;
+    width: 50%;
+    top: 50px;
+  }
+  overflow: visible;
+}
+.icon_left {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  overflow: visible;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  top: 70.56px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  z-index: 4;
+  background-color: #9b59b6;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+  cursor: pointer;
+  border: 0px solid;
+}
+.icon_right {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  overflow: visible;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  top: 70.56px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+#title_question {
+  position: absolute;
+
+  text-align: center;
+  font-family: Dosis;
+  font-style: normal;
+
+  font-weight: normal;
+  @include md {
+    top: 70.56px;
+    width: 100%;
+    font-size: 31px;
+  }
+  @include lg {
+    top: 70.56px;
+    width: 100%;
+    font-size: 31px;
+  }
+  @include sm {
+    top: 40.56px;
+    width: 50%;
+    font-size: 25px;
+  }
+  color: rgba(255, 255, 255, 1);
+}
+
+.slideLeft {
+  position: absolute;
+
+  @include md {
+    border-radius: 50px;
+    top: 500px;
+    width: 40px;
+    height: 40px;
+    left: 15px;
+  }
+  @include lg {
+    top: 200px;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    left: 15px;
+  }
+  @include sm {
+    top: 140px;
+    border-radius: 30px;
+    width: 35px;
+    height: 35px;
+    left: 10px;
+  }
+
+  z-index: 4;
+  background-color: #9b59b6;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+  cursor: pointer;
+  border: 0px solid;
+}
+
+.slideRight {
+  position: absolute;
+
+  @include md {
+    left: 100%-9;
+    top: 200px;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+  }
+  @include lg {
+    top: 200px;
+    left: 100%-9;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+  }
+  @include sm {
+    top: 140px;
+    left: 100%-12;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+  }
+  z-index: 4;
+  border-radius: 50px;
+  background-color: #9b59b6;
+  opacity: 0.8;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  border: 0px solid;
+}
+.progressbar-logo {
+  @include sm {
+    width: 200px;
+    height: 200px;
+  }
+  @include md {
+    width: 300px;
+    height: 300px;
+  }
+  @include lg {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.logo-screen-round {
+  background-color: #ffffff;
+  @include sm {
+    width: 200px;
+    height: 200px;
+  }
+  @include md {
+    width: 250px;
+    height: 250px;
+  }
+  @include lg {
+    width: 250px;
+    height: 250px;
+  }
+
+  border-radius: 200px;
+  filter: drop-shadow(0px 2px 3px rgb(204, 186, 186));
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 30px;
+
+  img {
+    @include sm {
+      height: 130px;
+    }
+    @include md {
+      height: 160px;
+    }
+    @include lg {
+      height: 160px;
+    }
+    width: 100%;
+  }
+
+  &-progressbar {
+    border-radius: 200px;
+    filter: drop-shadow(0px 2px 3px rgb(204, 186, 186));
+    background-color: #ffffff;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    @include sm {
+      width: 160px;
+      height: 160px;
+      padding-top: 5px;
+      position: absolute;
+      top: 60%;
+    }
+    @include md {
+      width: 250px;
+      height: 250px;
+      padding-top: 30px;
+    }
+    @include lg {
+      width: 250px;
+      height: 250px;
+      padding-top: 40px;
+    }
+    img {
+      @include sm {
+        height: 140px;
+      }
+      @include md {
+        height: 160px;
+      }
+      @include lg {
+        height: 160px;
+      }
+      width: 100%;
+    }
+  }
+}
+.section-hide {
+  visibility: hidden;
+}
+.order-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  a {
+    text-align: center;
+    font-family: Dosis;
+    font-weight: bold;
+    font-size: 20px;
+    color: purple;
+    text-decoration: none;
+  }
+  p {
+    text-align: justify;
+    font-family: Dosis;
+    font-size: 20px;
+    color: $primary_default;
+    text-decoration: none;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: Dosis;
+    font-weight: bold;
+    font-size: 20px;
+    color: purple;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: $grid__bp-md * 1px) {
+  .brand {
+    height: 450px !important;
+    margin: 0 auto !important;
+    padding: 0px !important;
+    text-align: center;
+    &:before {
+      content: "";
+      vertical-align: middle;
+      display: inline-block;
+      height: 100%;
+    }
+    img {
+      width: 50%;
+      height: 300px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+#option {
+  position: relative;
+  width: 100%;
+  height: 252px;
+  overflow: visible;
+  margin: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgba(223, 204, 226, 1);
+}
+#container-option {
+  width: 100%;
+  height: 252px;
+}
+.container-option {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.161));
+  overflow: visible;
+  position: absolute;
+  height: 252px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Rectangle_24 {
+  width: 100%;
+  height: 192px;
+}
+.Rectangle_24 {
+  @include md {
+    width: 80%;
+  }
+  @include lg {
+    width: 80%;
+  }
+  @include sm {
+    width: 80%;
+  }
+  height: 222px;
+  position: absolute;
+  overflow: visible;
+  transform: translate(-423px, -365px) matrix(1, 0, 0, 1, 455, 394) rotate(0deg);
+  transform-origin: center;
+}
+#Ellipse_4 {
+  opacity: 0.2;
+}
+.Ellipse_4 {
+  position: absolute;
+  overflow: visible;
+
+  width: 58px;
+  height: 60px;
+  left: -15px;
+  top: 60px;
+}
+#Ellipse_6 {
+  opacity: 0.2;
+}
+.Ellipse_6 {
+  position: absolute;
+  overflow: visible;
+  width: 75px;
+  height: 77px;
+  left: 234px;
+  top: 6px;
+}
+#Ellipse_8 {
+  opacity: 0.2;
+}
+.Ellipse_8 {
+  position: absolute;
+  overflow: visible;
+  width: 98px;
+  height: 93px;
+  left: 49px;
+  top: 122px;
+}
+#Polygon_1 {
+  opacity: 0.2;
+}
+.Polygon_1 {
+  overflow: hidden;
+  position: absolute;
+  width: 71px;
+  height: 71px;
+  transform: translate(-528px, -385px) matrix(1, 0, 0, 1, 763, 563) rotate(1deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#Polygon_2 {
+  opacity: 0.2;
+}
+.Polygon_2 {
+  overflow: hidden;
+  position: absolute;
+  width: 86px;
+  height: 66px;
+  transform: translate(-428px, -365px) matrix(1, 0, 0, 1, 463.0112, 381.7691)
+    rotate(180deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#text-option {
+  position: absolute;
+  left: 54px;
+  top: 75px;
+  overflow: visible;
+  width: 233px;
+  height: 40px;
+  text-align: center;
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 1);
+}
+#Rectangle_27 {
+  opacity: 0.2;
+}
+.Rectangle_27 {
+  position: absolute;
+  overflow: visible;
+  width: 68px;
+  height: 52px;
+  left: 384px;
+  top: 300px;
+}
+#Rectangle_25 {
+  opacity: 0.2;
+}
+.Rectangle_25 {
+  position: absolute;
+  overflow: visible;
+  width: 68px;
+  height: 52px;
+  left: 150px;
+  top: 77px;
+}
+#Rectangle_26 {
+  opacity: 0.2;
+}
+.Rectangle_26 {
+  position: absolute;
+  overflow: visible;
+  width: 106px;
+  height: 91px;
+  left: 167px;
+  top: 254px;
+}
+
+.mainpage {
+  padding: var(--gutter) 0;
+  display: grid;
+  grid-gap: var(--gutter) 0;
+  grid-template-columns: var(--gutter) 1fr var(--gutter);
+  align-content: start;
+}
+
+.mainpage > * {
+  grid-column: 2 / -2;
+}
+
+.mainpage > .full {
+  grid-column: 1 / -1;
+}
+@include md {
+  .hs {
+    display: grid;
+    grid-gap: calc(var(--gutter) / 2);
+    grid-template-columns: repeat(6, calc(40% - 40px));
+    grid-template-rows: minmax(150px, 1fr);
+
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding-bottom: calc(0.75 * var(--gutter));
+    margin-bottom: calc(-0.25 * var(--gutter));
+  }
+}
+
+@include sm {
+  .hs {
+    display: grid;
+    grid-gap: calc(var(--gutter) / 2);
+    grid-template-columns: repeat(6, calc(40% - 0));
+    grid-template-rows: minmax(150px, 1fr);
+
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding-bottom: calc(0.75 * var(--gutter));
+    margin-bottom: calc(-0.25 * var(--gutter));
+  }
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hs > li,
+.item {
+  scroll-snap-align: center;
+  padding: calc(var(--gutter) / 2 * 1.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.titlemain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  a {
+    text-align: center;
+    font-family: Dosis;
+    font-weight: bold;
+    font-size: 20px;
+    color: purple;
+    text-decoration: none;
+  }
+  p {
+    text-align: justify;
+    font-family: Dosis;
+    font-size: 20px;
+    color: $primary_default;
+    text-decoration: none;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: Dosis;
+    font-weight: bold;
+    font-size: 20px;
+    color: purple;
+    text-decoration: none;
+  }
+}

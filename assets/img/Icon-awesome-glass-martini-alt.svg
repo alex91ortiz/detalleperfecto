@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30.666" height="30.857" viewBox="0 0 57.666 64.857">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c179c9;
+      }
+    </style>
+  </defs>
+  <path id="Icon_awesome-glass-martini-alt" data-name="Icon awesome-glass-martini-alt" class="cls-1" d="M56.546,7.3C58.939,4.6,57.244,0,53.86,0H3.807C.422,0-1.273,4.6,1.121,7.3L25.229,34.409V58.776H18.922a4.811,4.811,0,0,0-4.505,5.067.962.962,0,0,0,.9,1.013H42.349a.962.962,0,0,0,.9-1.013,4.811,4.811,0,0,0-4.505-5.067H32.437V34.409ZM49.982,6.08l-5.406,6.08H13.092L7.686,6.08Z" transform="translate(0)"/>
+</svg>
