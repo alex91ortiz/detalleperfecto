@@ -22,23 +22,23 @@ export default function Head({ filters, gotocat }) {
     const [goingUp, setGoingUp] = useState(false);
     const router = useRouter();
     const selectedText = (value) => {
-        
+
         setSearch(value);
         setCompletions([]);
         (gotocat) ? router.push({ pathname: '/catalogo/' + value, query: router.query }) : null;
 
     }
 
-    const onTextChange = (e)=>{
+    const onTextChange = (e) => {
         const value = e.target.value;
         let completions = [];
-        if(value.length > 0){
+        if (value.length > 0) {
             const regex = new RegExp(`^${value}`, 'i');
             completions = Options.OcationsArr.sort().filter(v => regex.test(v))
         }
         setCompletions(completions);
         setSearch(value);
-        
+
     }
     useEffect(() => {
         const handleScroll = () => {
@@ -53,10 +53,14 @@ export default function Head({ filters, gotocat }) {
             prevScrollY.current = currentScrollY;
         };
         if (filters) {
-            window.addEventListener("scroll", handleScroll, { passive: true });
-            return () => window.removeEventListener("scroll", handleScroll);
+            /*window.addEventListener("scroll", handleScroll, { passive: true });
+            return () => window.removeEventListener("scroll", handleScroll);*/
+        }
+        function onScroll() {
+            console.log("scroll!");
         }
 
+        window.addEventListener("scroll", onScroll);
 
     }, [goingUp])
 
@@ -71,7 +75,7 @@ export default function Head({ filters, gotocat }) {
                         <div className="container__col-lg-al-7 container__col-md-al-8">
                             <div className="has-search" >
                                 <FontAwesomeIcon icon={faSearch} className="form-control-feedback" />
-                                <input type="text" className="form-control-dp" placeholder="Encuentra lo que deseas" value={search} onChange={()=>onTextChange(event)} />
+                                <input type="text" className="form-control-dp" placeholder="Encuentra lo que deseas" value={search} onChange={() => onTextChange(event)} />
                             </div>
                         </div>
 

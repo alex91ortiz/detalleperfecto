@@ -1,5 +1,7 @@
 
 import IconGlassMartini from '../assets/img/Icon-awesome-glass-martini-alt.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link'
 import { createSkeletonElement, createSkeletonProvider } from '@trainline/react-skeletor';
 import giff2 from '../assets/img/muestras/Giff_2_main_page.png';
@@ -29,6 +31,11 @@ function Page({ products, categories }) {
 
         <ul className="hs no-scrollbar">
           {products.map((product, index) => {
+            let total = product.contenido.reduce((tol, current) => {
+              return tol + current.precio * current.cantidad;
+            }, 0);
+            total += product.tamano.valor;
+            total += product.envio.valor;
             return <li className="item">
               <div key={index} className="container__col-lg-12 container__col-md-4">
                 <Link href="/desayunos/[id]" as={`/desayunos/${product.id}-${product.seo}`} passHref>
@@ -36,9 +43,12 @@ function Page({ products, categories }) {
                     <div className="card">
                       <div className="card_image"> <Img key={index} src={product.image_sm} /> </div>
                       <div className="card_title title-white">
-                        <img src={IconGlassMartini} />
                       </div>
                     </div>
+                    <div className="card_title-info-gen">
+                      <FontAwesomeIcon className="panel-icon-button-card" icon={faDollarSign} color="purple" />
+                      {total}
+                      </div>
                   </a>
                 </Link>
               </div>

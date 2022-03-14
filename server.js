@@ -1,14 +1,23 @@
+
 const express = require('express');
 const next = require('next');
 require('dotenv').config();
 const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_TOKEN);
 const cookieParser = require('cookie-parser');
-const port = parseInt(process.env.PORT, 10) || 3000
+
+const ports = {
+    http: parseInt(process.env.PORT, 10) || 3080,
+    https: parseInt(process.env.PORT, 10) || 3443
+  }
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const firebase = require('@firebase/app').default;
 require('@firebase/firestore');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+
 const loadDB = () => {
     try {
         const config = {
@@ -33,9 +42,15 @@ const loadDB = () => {
     return firebase;
 };
 
+const httpsOptions = {
+    key: fs.readFileSync('./certificates/localhost.key'),
+    cert: fs.readFileSync('./certificates/localhost.crt')
+};
+
 app.prepare().then(() => {
     const server = express();
     server.use(cookieParser());
+    server.use("/media/", express.static(__dirname + '/media/'));
     server.get("api/shows", (req, res) => {
         return res.end("Whsddks");
     });
@@ -54,7 +69,7 @@ app.prepare().then(() => {
                     twilio.messages.create({
                         from: 'whatsapp:+14155238886',
                         to: 'whatsapp:+573154040333',
-                        body: 'el numero de contacto ' + data.user.contact + ' ubicado en ' + data.user.user + ' ' + data.user.location +  ' realizo el pedido para el ' + data.product.categoria + '-' + data.product.nombre
+                        body: 'el numero de contacto ' + data.user.contact + ' ubicado en ' + data.user.user + ' ' + data.user.location + ' realizo el pedido para el ' + data.product.categoria + '-' + data.product.nombre
                     }).then(message => console.log(message.sid));
                     res.json("ok");
                 }
@@ -183,9 +198,17 @@ app.prepare().then(() => {
     server.all('*', (req, res) => {
         return handle(req, res);
     });
-    server.listen(port, err => {
+    /*server.listen(port, err => {
         if (err) throw err;
         console.log(`> Ready on http://localhost:${port}`);
+    });*/
+    http.createServer(server).listen(ports.http,err => {
+        if (err) throw err;
+        console.log(`> Ready on http://localhost:${ports.http}`);
+    });
+    https.createServer(httpsOptions, server).listen(ports.https,err => {
+        if (err) throw err;
+        console.log(`> Ready on https://localhost:${ports.https}`);
     });
 }).catch(ex => {
     console.error(ex.stack);

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart, faDollarSign, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faDollarSign, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import ListItems from './ListItems';
 import { useRouter } from 'next/router';
 import { useModal, Modal } from 'react-morphing-modal';
